@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="Json" format="json">
+      <types:shape format="weave" example="examples/sample.json.txt"><![CDATA[%dw 2.0
+
+type Json = {|
+  name: String, 
+  "emp-id": Number {"typeId": "int"}, 
+  gender: String
+|} {"example": "{\\\"name\\\":\\\"krishna\\\",\\\"emp-id\\\":66,\\\"gender\\\":\\\"male\\\"}"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#d8ddc0a5-2f08-4829-a260-cf0bb789e928">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="Json"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>

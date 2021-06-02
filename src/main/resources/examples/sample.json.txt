@@ -1,0 +1,5 @@
+{
+   "name": "krishna",
+   "emp-id": 66,
+   "gender": "male"
+}
